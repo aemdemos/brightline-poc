@@ -238,9 +238,20 @@ main > .section > div {
   padding: 0 24px;
 }
 
+main > .banner-section > div {
+    display: flex;
+    flex-direction: row;
+}
+
 main > .section:first-of-type {
   margin-top: 0;
 }
+
+main > .section.columns-container  h1,
+main > .section.columns-container  h2 {
+  text-align: center;
+}
+
 
 @media (width >= 900px) {
   main > .section > div {

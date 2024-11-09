@@ -489,6 +489,14 @@ function decorateSections(main) {
       });
       sectionMeta.parentNode.remove();
     }
+
+    if (section.classList.contains('banner-section')) {
+      const newDiv = document.createElement('div');
+      while (section.firstChild) {
+        newDiv.appendChild(section.firstChild); // This removes the first child from section and appends it to newDiv
+      }
+      section.appendChild(newDiv);
+    }
   });
 }
 
@@ -620,7 +628,9 @@ function decorateBlock(block) {
  * @param {Element} main The container element
  */
 function decorateBlocks(main) {
-  main.querySelectorAll('div.section > div > div').forEach(decorateBlock);
+    main.querySelectorAll('div.section:not(.banner-section) > div > div').forEach(decorateBlock);
+
+    main.querySelectorAll('div.banner-section > div > div > div').forEach(decorateBlock);
 }
 
 /**
