@@ -3,7 +3,7 @@ import { toClassName } from '../../scripts/aem.js';
 function createFieldWrapper(fd) {
   const fieldWrapper = document.createElement('div');
   if (fd.Style) fieldWrapper.className = fd.Style;
-  fieldWrapper.classList.add('field-wrapper', `${fd.Type}-wrapper`);
+  // fieldWrapper.classList.add('field-wrapper', `${fd.Type}-wrapper`);
 
   fieldWrapper.dataset.fieldset = fd.Fieldset;
 
@@ -26,6 +26,7 @@ function createLabel(fd) {
   label.setAttribute('for', fd.Id);
   if (fd.Mandatory.toLowerCase() === 'true' || fd.Mandatory.toLowerCase() === 'x') {
     label.dataset.required = true;
+    // label.innerHTML = `${fd.Label || fd.Name} <span>*</span>`;
   }
   return label;
 }

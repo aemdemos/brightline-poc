@@ -31,11 +31,11 @@ async function createForm(blockConfig) {
             const fieldJson = {
                 "Name": "",
                 "Type": "text",
-                "Label": "",
-                "Placeholder": value,
+                "Label": value,
+                "Placeholder": "",
                 "Value": "",
                 "Options": "",
-                "Mandatory": "",
+                "Mandatory": "true",
                 "Style": "",
                 "ID": "",
                 "Fieldset": "quoteFS"
@@ -120,17 +120,34 @@ async function handleSubmit(form) {
 }
 
 export default async function decorate(block) {
-  // const config = readBlockConfig(block);
-  // console.log(config);
-    const blockConfig = readBlockConfig(block);
-    console.log(blockConfig);
-  // const links = [...block.querySelectorAll('a')].map((a) => a.href);
-  // const formLink = links.find((link) => link.startsWith(window.location.origin) && link.endsWith('.json'));
-  // const submitLink = links.find((link) => link !== formLink);
-  // if (!formLink || !submitLink) return;
+    const {heading, logo, ...blockConfig} = readBlockConfig(block);
+    const pictureDiv = block.children[1].children[1].children[0];
+
+    block.innerHTML = '';
+  const formHeading = document.createElement('div');
+  formHeading.classList.add('form-heading');
+  formHeading.innerHTML = `<h2>${heading}</h2>`;
+  block.append(formHeading);
+
+    const formLogo = document.createElement('div');
+    formLogo.classList.add('form-logo');
+    formLogo.innerHTML = `<picture>${pictureDiv.innerHTML}</picture>`;
+    block.append(formLogo);
 
   const form = await createForm(blockConfig);
-  block.replaceChildren(form);
+  const requiredFieldsText = document.createElement('p');
+    requiredFieldsText.classList.add('required-fields');
+  requiredFieldsText.innerHTML = '* indicates a required field';
+
+  const disclaimerDiv = document.createElement('div');
+  disclaimerDiv.classList.add('disclaimer');
+  disclaimerDiv.innerHTML = `<p>By signing up for emails, you agree to our  <a href="/privacy-policy">Privacy Policy</a></p>`;
+  const formDiv = document.createElement('div');
+  formDiv.classList.add('form-container');
+  formDiv.append(requiredFieldsText);
+  formDiv.append(form);
+  formDiv.append(disclaimerDiv);
+  block.append(formDiv);
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
