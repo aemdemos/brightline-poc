@@ -149,7 +149,7 @@ pre {
 }
 
 main > div {
-  margin: 40px 16px;
+  margin: 0px 16px;
 }
 
 input,
@@ -244,6 +244,11 @@ main > .section > div {
   padding: 0 24px;
 }
 
+main > .section > div.form-wrapper {
+  padding: 0;
+}
+
+
 main > .banner-section > div {
     display: flex;
     flex-direction: row;
@@ -260,13 +265,29 @@ main > .section.columns-container .default-content-wrapper {
 
 main > .section.columns-container  h1 {
   text-align: center;
-  font-size: 44px;
+  font-size: 28px;
   font-weight: 500;
-  line-height: 54px;
+  line-height: 38px;
   letter-spacing: 0;
   text-transform: none;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+@media (width >= 1024px) {
+
+  main > .section.columns-container  h1 {
+    font-size: 44px;
+    line-height: 54px;
+  }
+
+  main > div {
+    margin: 40px 16px;
+  }
+
+  main > .section > div.form-wrapper {
+    padding:  0 24px;
+  }
 }
 
 main > .section.columns-container  p {
