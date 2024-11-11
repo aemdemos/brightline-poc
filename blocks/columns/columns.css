@@ -18,6 +18,7 @@
 
 .columns > div > .columns-img-col img {
   display: block;
+  height: 100%;
 }
 
 .columns > div > .columns-content-col {
@@ -73,6 +74,50 @@
     order: unset;
   }
 }
+
+@media (width >= 768px) {
+
+  .columns > div {
+    flex-direction: unset;
+  }
+  .columns > div > div {
+    flex: 1;
+    order: unset;
+  }
+
+  .columns > div > .columns-content-col {
+    padding: 0;
+  }
+  .columns > div > .columns-content-col *{
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+
+  .columns > div > .columns-content-col h2 {
+    text-align: left;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 44px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #363636;
+    margin-bottom: 24px;
+  }
+
+  .columns > div > .columns-content-col p {
+    text-align: left;
+    color: #363636;
+    margin-bottom: 24px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+
+}
+
 
 @media (width >= 1024px) {
 
