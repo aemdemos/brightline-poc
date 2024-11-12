@@ -162,5 +162,48 @@ export default async function decorate(block) {
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
+
+  const picture = nav.querySelector('picture');
+  if (picture) {
+    picture.remove();
+    // const pictureLink = document.createElement('a');
+    // pictureLink.href = '/';
+    // pictureLink.append(picture);
+    // nav.prepend(pictureLink);
+  }
+
+  const menuWrapper = document.createElement('div');
+  menuWrapper.className = 'menu-wrapper';
+  const topMenu = nav.querySelector('.top-menu ul');
+  if (topMenu) {
+        const topMenuDiv = document.createElement('div');
+        topMenuDiv.className = 'top-menu';
+        topMenuDiv.append(topMenu);
+        menuWrapper.append(topMenuDiv);
+  }
+
+  const primaryMenu = nav.querySelector('.primary-menu ul');
+  if (primaryMenu) {
+    const buttonLink = document.createElement('a');
+    buttonLink.href = '/';
+    buttonLink.textContent = nav.querySelector('.primary-button ul li').textContent;
+    const tempLi = document.createElement('li');
+    tempLi.append(buttonLink);
+    primaryMenu.append(tempLi);
+    const primaryMenuDiv = document.createElement('div');
+    primaryMenuDiv.className = 'primary-menu';
+    primaryMenuDiv.append(primaryMenu);
+    menuWrapper.append(primaryMenuDiv);
+  }
+  nav.textContent = '';
+  const pictureLink = document.createElement('a');
+  pictureLink.className = 'nav-brand';
+  pictureLink.href = '/';
+  pictureLink.append(picture);
+  // const pictureDiv = document.createElement('div');
+  //   pictureDiv.className = 'nav-brand';
+  //   pictureDiv.append(pictureLink);
+    nav.append(pictureLink);
+  nav.append(menuWrapper);
   block.append(navWrapper);
 }
