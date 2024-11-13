@@ -243,7 +243,24 @@ export default async function decorate(block) {
   // const pictureDiv = document.createElement('div');
   //   pictureDiv.className = 'nav-brand';
   //   pictureDiv.append(pictureLink);
-    nav.append(pictureLink);
+  nav.append(pictureLink);
+
+
+  const navMobileHandle = document.createElement('div');
+  navMobileHandle.className = 'nav-mobile-handle';
+  const openMenuButton = document.createElement('div');
+  openMenuButton.classList.add('nav-hamburger');
+  openMenuButton.innerHTML = `
+      <span class="icon-hamburger"></span>
+  `;
+  navMobileHandle.append(openMenuButton);
+
+  const closeMenuButton = document.createElement('div');
+  closeMenuButton.classList.add('nav-close');
+  closeMenuButton.innerHTML = `<span class="icon-close"></span>`;
+  navMobileHandle.append(closeMenuButton);
+
+  nav.append(navMobileHandle);
   nav.append(menuWrapper);
   block.append(navWrapper);
   addEvents(block);
