@@ -103,6 +103,46 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+
+async function addEvents(block) {
+  const navDrops = block.querySelectorAll('.nav-drop');
+
+// Function to toggle dropdown visibility on click
+  function toggleDropdown(event) {
+    event.stopPropagation(); // Prevent click from bubbling up
+    this.classList.toggle('show');
+  }
+
+// Function to show dropdown on hover
+  function showDropdown() {
+    this.classList.add('show');
+  }
+
+// Function to hide dropdown on hover
+  function hideDropdown() {
+    this.classList.remove('show');
+  }
+
+// Attach event listeners to each nav-drop
+  navDrops.forEach(navDrop => {
+    // Toggle dropdown on click
+    navDrop.addEventListener('click', toggleDropdown);
+
+    // Show dropdown on hover
+    navDrop.addEventListener('mouseenter', showDropdown);
+    navDrop.addEventListener('mouseleave', hideDropdown);
+  });
+
+// Close all dropdowns if clicking outside any nav-drop
+  document.addEventListener('click', function(event) {
+    navDrops.forEach(navDrop => {
+      if (!navDrop.contains(event.target)) {
+        navDrop.classList.remove('show');
+      }
+    });
+  });
+
+}
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -206,4 +246,5 @@ export default async function decorate(block) {
     nav.append(pictureLink);
   nav.append(menuWrapper);
   block.append(navWrapper);
+  addEvents(block);
 }

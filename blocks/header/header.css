@@ -276,9 +276,6 @@
 
 @media (width >= 1024px) {
 
-  header .primary-menu li ul{
-    /*display: none;*/
-  }
   header .nav-wrapper nav {
     max-width: 1400px;
     margin: 0 auto;
@@ -321,7 +318,7 @@
     display: flex;
     /*flex-direction: row;*/
     /*width: 100%;*/
-    gap:20px;
+    gap:35px;
     justify-content: space-between;
     border-top: none;
     margin: 12px 0 8px;
@@ -342,7 +339,7 @@
 
     position: relative;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     margin: 0;
     border: 0 none;
     border-radius: 0;
@@ -364,6 +361,13 @@
     z-index: 2;
     white-space: nowrap;
   }
+
+    .primary-menu > ul > li:hover {
+        text-decoration: underline;
+        text-decoration-color: #ffdb00;
+        text-decoration-thickness: 3px;      /* Sets underline thickness */
+        text-underline-offset: 2px; /* Sets the underline color to yellow on hover */
+    }
 
   .primary-menu > ul > li > a {
     border-radius: 8px;
@@ -394,22 +398,69 @@
     line-height: 26px;
   }
 
-  .primary-menu > ul > li > ul {
+    .nav-drop > ul {
     transition: max-height .3s linear;
     overflow: hidden;
-    margin: 0;
-    padding: 0;
     list-style: none;
     left: 0;
     width: max-content;
-    max-height: 0;
     z-index: 3;
     min-width: calc(100% + 16px);
     position: absolute;
     margin-left: -8px;
     border-radius: 0 0 8px 8px;
     box-shadow: 0 15px 20px #0000001a;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
   }
+
+    .nav-drop > ul {
+        transition: max-height .3s linear;
+        overflow: hidden;
+        list-style: none;
+        /*left: 0;*/
+        width: max-content;
+        z-index: 3;
+        min-width: calc(100% + 16px);
+        position: absolute;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 15px 20px #0000001a;
+
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: start;
+        padding-left: 4px;
+        margin-left: 3px;
+        margin-top: 35px;
+        display: none;
+        background-color: #fff;
+    }
+
+    .nav-drop.show ul {
+        display: flex;
+    }
+
+    .nav-drop > ul > li {
+        font-size: 25px;
+        font-weight: 400;
+        line-height: 28px;
+        text-decoration: none;
+        color: #363636;
+        background: #fff;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .nav-drop > ul > li:hover{
+        background-color: #e8f2f1;
+    }
+
+
+    .nav-drop > ul > li > a{
+        text-decoration: none;
+        color: #363636;
+
+    }
 
   .top-menu ul {
     display: flex;
