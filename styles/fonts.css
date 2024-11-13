@@ -52,3 +52,8 @@
   src: url('../fonts/d11589b013c4d29eea74.woff2') format("woff2");
   font-weight: 400
 }
+
+@font-face {
+  font-family: icon-font;
+  src: url('../fonts/icon-font.ttf?2e213191aa4f5cbc') format("truetype"),url('../fonts/icon-font.eot?2e213191aa4f5cbc#iefix') format("embedded-opentype"),url('../fonts/icon-font.woff?2e213191aa4f5cbc') format("woff"),url('../fonts/icon-font.svg?2e213191aa4f5cbc#icon-font') format("svg")
+}
