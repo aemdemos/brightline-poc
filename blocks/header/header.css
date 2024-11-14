@@ -179,6 +179,31 @@ header .menu-wrapper .primary-menu > ul > li{
 header .menu-wrapper .primary-menu > ul > li > .nav-icons {
   display: none;
 }
+
+header .menu-wrapper .primary-menu > ul > li > .nav-icons > .icon-arrow-up {
+  display: none;
+}
+
+header .menu-wrapper .primary-menu > ul > li > .nav-icons > .icon-arrow-down {
+  display: block;
+}
+header .menu-wrapper .primary-menu > ul > li > .nav-icons > .icon-arrow-down:after {
+  content: "\f115";
+}
+header .menu-wrapper .primary-menu > ul > li.show > .nav-icons > .icon-arrow-up {
+  display: block;
+}
+
+header .menu-wrapper .primary-menu > ul > li.show > .nav-icons > .icon-arrow-up:after {
+  content: "\f114";
+}
+
+header .menu-wrapper .primary-menu > ul > li.show > .nav-icons > .icon-arrow-down {
+  display: none;
+}
+
+
+
 header .menu-wrapper .primary-menu > ul > li > ul {
   display: none;
   transition: opacity .3s, max-height .3s, padding-left .3s, padding-top .3s, padding-bottom .3s;
@@ -361,6 +386,10 @@ header .menu-wrapper .primary-menu > ul > li > a {
   /*  text-underline-offset: 2px; !* Sets the underline color to yellow on hover *!*/
   /*}*/
   header .menu-wrapper .primary-menu > ul > li > .nav-icons {
+    display: none;
+  }
+
+  header .menu-wrapper .primary-menu > ul > li.show > .nav-icons {
     display: none;
   }
   header .menu-wrapper .primary-menu > ul > li > a {
