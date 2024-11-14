@@ -296,7 +296,15 @@ header .icon-close:after {
 content: "\f112";
 }
 
-header .icon-close {
+header .nav-close {
+  display: none;
+}
+
+header .nav-close.menu-open {
+  display: block;
+}
+
+header .nav-hamburger.menu-open {
   display: none;
 }
 
@@ -315,8 +323,10 @@ header nav .nav-brand {
 header nav .nav-mobile-handle{
   width: 20%;
 }
-
 header .menu-wrapper {
+  display:none;
+}
+header .menu-wrapper.menu-open {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -431,12 +441,14 @@ header .menu-wrapper .primary-menu > ul > li{
   padding-left: 0;
   z-index: 2;
 }
-
-header .menu-wrapper .primary-menu > ul > li > a {
+header .menu-wrapper .primary-menu > ul > li > .nav-icons {
   display: none;
 }
-
-  header .menu-wrapper .primary-menu > ul > li > ul {
+header .menu-wrapper .primary-menu > ul > li > ul {
+  display: none;
+}
+  header .menu-wrapper .primary-menu > ul > li.show > ul {
+    display: block;
     transition: opacity .3s, max-height .3s, padding-left .3s, padding-top .3s, padding-bottom .3s;
     opacity: 1;
     max-height: 500px;
@@ -486,6 +498,11 @@ header .menu-wrapper .primary-menu > ul > li > ul > li > a {
   cursor: pointer;
   color: #363636;
   text-align: left;
+
+}
+
+header .menu-wrapper .primary-menu > ul > li > a {
+  display: none;
 }
 
 
@@ -607,7 +624,9 @@ header .menu-wrapper .primary-menu > ul > li > ul > li > a {
   /*  text-decoration-thickness: 3px;      !* Sets underline thickness *!*/
   /*  text-underline-offset: 2px; !* Sets the underline color to yellow on hover *!*/
   /*}*/
-
+  header .menu-wrapper .primary-menu > ul > li > .nav-icons {
+    display: none;
+  }
   header .menu-wrapper .primary-menu > ul > li > a {
     border-radius: 8px;
     text-decoration: none;

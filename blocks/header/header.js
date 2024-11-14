@@ -142,6 +142,48 @@ async function addEvents(block) {
     });
   });
 
+  const menu_wrapper = block.querySelector(".menu-wrapper");
+  const hamburger = block.querySelector(".nav-hamburger");
+  const closeIcon = block.querySelector(".nav-close");
+
+  hamburger.addEventListener("click", () => {
+    menu_wrapper.classList.toggle("menu-open");
+    hamburger.classList.add("menu-open");
+    closeIcon.classList.add("menu-open");
+  });
+
+  closeIcon.addEventListener("click", () => {
+    menu_wrapper.classList.remove("menu-open");
+    hamburger.classList.remove("menu-open");
+    closeIcon.classList.remove("menu-open");
+  });
+
+}
+
+function addIconsToNavDrop(block) {
+  // Select all elements with class 'nav-drop'
+  const navDropElements = block.querySelectorAll(".nav-drop");
+
+  navDropElements.forEach((navDrop) => {
+    // Create the span element
+    const iconSpan = document.createElement("span");
+    iconSpan.classList.add("nav-icons");
+
+    // Create the up arrow icon
+    const upArrow = document.createElement("i");
+    upArrow.classList.add("icon-arrow-up"); // Add your icon class here
+
+    // Create the close icon
+    const closeIcon = document.createElement("i");
+    closeIcon.classList.add("icon-arrow-down"); // Add your icon class here
+
+    // Append icons to span
+    iconSpan.appendChild(upArrow);
+    iconSpan.appendChild(closeIcon);
+
+    // Append the span to the nav-drop element
+    navDrop.insertBefore(iconSpan, navDrop.children[0]);
+  });
 }
 /**
  * loads and decorates the header, mainly the nav
@@ -263,5 +305,7 @@ export default async function decorate(block) {
   nav.append(navMobileHandle);
   nav.append(menuWrapper);
   block.append(navWrapper);
+  addIconsToNavDrop(block);
   addEvents(block);
+
 }
