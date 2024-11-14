@@ -436,28 +436,28 @@ header .menu-wrapper .primary-menu > ul > li > a {
   display: none;
 }
 
-header .menu-wrapper .primary-menu > ul > li > ul {
-  transition: opacity .3s, max-height .3s, padding-left .3s, padding-top .3s, padding-bottom .3s;
-  opacity: 1;
-  max-height: 500px;
-  overflow: hidden;
-
+  header .menu-wrapper .primary-menu > ul > li > ul {
     transition: opacity .3s, max-height .3s, padding-left .3s, padding-top .3s, padding-bottom .3s;
     opacity: 1;
     max-height: 500px;
     overflow: hidden;
 
-    transition: max-height .3s linear;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    position: relative;
-    left: 0;
-    min-width: 100%;
-    width: max-content;
-    z-index: 3;
-}
+      transition: opacity .3s, max-height .3s, padding-left .3s, padding-top .3s, padding-bottom .3s;
+      opacity: 1;
+      max-height: 500px;
+      overflow: hidden;
+
+      transition: max-height .3s linear;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: relative;
+      left: 0;
+      min-width: 100%;
+      width: max-content;
+      z-index: 3;
+  }
 
 header .menu-wrapper .primary-menu > ul > li > ul > li {
   font-size: 16px;
@@ -498,10 +498,16 @@ box-sizing: content-box;
 display: flex;
 justify-content: space-between;
 align-items: flex-start;
+  padding-top: 0px;
 }
 .nav-hamburger {
 display: none;
 }
+
+  header nav .nav-mobile-handle{
+    width: 0%;
+    display: none;
+  }
 
 header .nav-wrapper a.nav-brand {
  width: 172px;
@@ -516,7 +522,14 @@ padding-top: 32px;
 padding-bottom: 16px;
 }
 
-.menu-wrapper {
+  header .menu-wrapper .top-menu {
+    padding-top: 0px;
+    padding-left: 0px;
+    width: unset;
+    display: block;
+  }
+
+header .menu-wrapper {
 display: flex;
 flex-direction: column;
 border-top: 0;
@@ -528,7 +541,14 @@ height: auto;
 overflow: visible;
 }
 
-.primary-menu > ul {
+  header .menu-wrapper .primary-menu {
+     padding: 0;
+     width: unset;
+     display: block;
+     border-top: 0 solid #f2f2f4;
+  }
+
+  header .menu-wrapper .primary-menu > ul {
 display: flex;
 /*flex-direction: row;*/
     /*width: 100%;*/
@@ -542,7 +562,7 @@ display: flex;
     /*width: unset;*/
     align-items: center;
   }
-  .primary-menu > ul > li {
+  header .menu-wrapper .primary-menu > ul > li {
     font-size: 25px;
     font-weight: 400;
     line-height: 28px;
@@ -560,7 +580,7 @@ display: flex;
     box-shadow: none;
     background: none;
     cursor: pointer;
-    /*overflow: hidden;*/
+    overflow: visible;
     text-align: center;
     user-select: none;
     display: flex;
@@ -576,14 +596,14 @@ display: flex;
     white-space: nowrap;
   }
 
-    .primary-menu > ul > li:hover {
+  header .menu-wrapper .primary-menu > ul > li:hover {
         text-decoration: underline;
         text-decoration-color: #ffdb00;
         text-decoration-thickness: 3px;      /* Sets underline thickness */
         text-underline-offset: 2px; /* Sets the underline color to yellow on hover */
     }
 
-  .primary-menu > ul > li > a {
+  header .menu-wrapper .primary-menu > ul > li > a {
     border-radius: 8px;
     text-decoration: none;
     display: flex;
@@ -612,7 +632,7 @@ display: flex;
     line-height: 26px;
   }
 
-    .nav-drop > ul {
+  header .menu-wrapper .primary-menu > ul > li > ul {
     transition: max-height .3s linear;
     overflow: hidden;
     list-style: none;
@@ -629,7 +649,7 @@ display: flex;
       justify-content: flex-start;
   }
 
-    .nav-drop > ul {
+  header .menu-wrapper .primary-menu > ul > li > ul {
         transition: max-height .3s linear;
         overflow: hidden;
         list-style: none;
@@ -651,11 +671,11 @@ display: flex;
         background-color: #fff;
     }
 
-    .nav-drop.show ul {
+  header .menu-wrapper .primary-menu > ul > li.show ul {
         display: flex;
     }
 
-    .nav-drop > ul > li {
+  header .menu-wrapper .primary-menu > ul > li > ul > li {
         font-size: 25px;
         font-weight: 400;
         line-height: 28px;
@@ -665,18 +685,19 @@ display: flex;
         margin-top: 15px;
         margin-bottom: 15px;
     }
-    .nav-drop > ul > li:hover{
+    .header .menu-wrapper .primary-menu > ul > li > ul > li:hover{
         background-color: #e8f2f1;
     }
 
 
-    .nav-drop > ul > li > a{
+  header .menu-wrapper .primary-menu > ul > li > ul > li > a{
         text-decoration: none;
         color: #363636;
 
     }
 
-  .top-menu ul {
+
+  header .menu-wrapper .top-menu ul {
     display: flex;
     flex-direction: row;
     /*width: 100%;*/
@@ -685,7 +706,7 @@ display: flex;
     width: unset;
   }
 
-  .top-menu ul li{
+  header .menu-wrapper .top-menu ul li{
     font-size: 16px;
     font-weight: 450;
     line-height: 20px;
