@@ -162,4 +162,23 @@ export default async function decorate(block) {
       }
     }
   });
+
+    const inputs = block.querySelectorAll('input');
+
+// Add event listeners for focus and blur events
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            const label = document.querySelector(`label[for="${input.id}"]`);
+            if (label) {
+                label.classList.add('label-focused');
+            }
+        });
+
+        input.addEventListener('blur', function() {
+            const label = document.querySelector(`label[for="${input.id}"]`);
+            if (label && input.value === '') {
+                label.classList.remove('label-focused');
+            }
+        });
+    });
 }
