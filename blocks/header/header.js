@@ -185,6 +185,27 @@ function addIconsToNavDrop(block) {
     navDrop.insertBefore(iconSpan, navDrop.children[0]);
   });
 }
+
+function addIconsToTopMenu(block) {
+  const menuItems = block.querySelectorAll(".top-menu ul li");
+
+  menuItems.forEach(item => {
+    const itemText = item.textContent.toLowerCase(); // Convert text content to lowercase
+
+    // Check if the item contains the text 'trips' (case-insensitive)
+    if (itemText.includes("trips")) {
+      const icon = document.createElement("i");
+      icon.classList.add("icon-briefcase"); // Add the briefcase icon
+      item.prepend(icon); // Insert icon before the text
+    }
+    // Check if the item contains the text 'login' (case-insensitive)
+    else if (itemText.includes("login")) {
+      const icon = document.createElement("i");
+      icon.classList.add("icon-login"); // Add the login icon
+      item.prepend(icon); // Insert icon before the text
+    }
+  });
+}
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -306,6 +327,7 @@ export default async function decorate(block) {
   nav.append(menuWrapper);
   block.append(navWrapper);
   addIconsToNavDrop(block);
+  addIconsToTopMenu(block);
   addEvents(block);
 
 }
